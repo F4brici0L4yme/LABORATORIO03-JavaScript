@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script1.js"></script>
+    <title>Tarea 1</title>
+</head>
+
+<body>
+    <h4 id="dayNumber">...</h4>
+    <h4 id="dayName">...</h4>
+    <p>Revisar la consola para verificar</p>
+    <button onclick='getDayName()'>Iniciar ejercicio 1</button>
+    <p>Código utilizado:</p>
+    <pre><code>
+        function getDayName() {
+        const DayNames = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+        const date = new Date();
+        const dayAsNumber = date.getDay();
+        const dayName = DayNames[dayAsNumber];
+
+        console.log(`Hoy es ${dayName}`);
+
+        document.getElementById('dayNumber').innerHTML = `Hoy es el día número ${dayAsNumber}`;
+        document.getElementById('dayName').innerHTML = `Hoy es ${dayName}!`;
+        }
+    </code></pre>
+</body>
+
+</html>
