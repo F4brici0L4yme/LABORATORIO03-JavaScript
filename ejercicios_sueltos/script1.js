@@ -5,7 +5,6 @@ function getDayName() {
     const dayName = DayNames[dayAsNumber];
 
     console.log(`Hoy es ${dayName}`);
-
-    document.getElementById('dayNumber').innerHTML = `Hoy es el día número ${dayAsNumber}`;
+    document.getElementById('dayNumber').innerHTML = `Hoy es el día número ${dayAsNumber} de la semana!`;
     document.getElementById('dayName').innerHTML = `Hoy es ${dayName}!`;
 }
