@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./script3.js"></script>
+    <title>Tarea 3</title>
+</head>
+<body>
+    <p>Fecha de hoy: <span id="today"></span></p>
+    <p id="arequipasDay"></p>
+    <button onclick='daysLeftToArequipaDay()'>Iniciar ejercicio 3</button>
+    <br><br><br>
+    <p>Revisar la consola para verificar...</p>
+    <p>Código utilizado:</p>
+    <pre><code>
+        function daysLeftToArequipaDay() {
+            const today = new Date();
+            const currentYear = today.getFullYear();
+        
+            const arequipaDate = new Date(currentYear, 7, 15);
+        
+            const msLeft = arequipaDate - today;
+            const leftDays = Math.ceil(msLeft / (1000 * 60 * 60 * 24));
+        
+            document.getElementById("today").textContent = today.toDateString();
+            document.getElementById("arequipasDay").textContent = `¡Faltan ${leftDays} días para el Día de Arequipa!`;
+        
+            console.log(`Hoy es: ${today.toDateString()}`);
+            console.log(`Faltan ${leftDays} días para el Día de Arequipa`);
+        }
+    </code></pre>
+</body>
+</html>
