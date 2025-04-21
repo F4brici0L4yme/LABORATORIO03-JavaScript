@@ -1,12 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./scriptPagina2.js"></script>
-    <title>Pagina 2</title>
+    <script src="./scriptPagina2.js" defer></script>
+    <title>Calculadora Básica</title>
 </head>
+
 <body>
-    
+
+    <h2>Calculadora</h2>
+    <p>Elige el operador:</p>
+    <select id="operator">
+        <optgroup label="Aritmética">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+            <option value="%">%</option>
+        </optgroup>
+        <optgroup label="Lógica">
+            <option value="&&">&&</option>
+            <option value="||">||</option>
+        </optgroup>
+        <optgroup label="Bitwise">
+            <option value="&">&</option>
+            <option value="|">|</option>
+        </optgroup>
+    </select><br><br>
+
+    <input id="argument1" placeholder="Primer valor">
+    <input id="argument2" placeholder="Segundo valor"><br><br>
+
+    <button onclick="calcular()">Calcular</button>
+
+    <p>Resultado: <span id="result"></span></p>
+    <br><br><br>
+    <p>Revisar la consola para verificar...</p>
+    <p>Código utilizado:</p>
+    <pre><code>
+        function calcular() {
+            const op = document.getElementById("operator").value;
+            const a = document.getElementById("argument1").value;
+            const b = document.getElementById("argument2").value;
+            let result = "—";
+        
+            if (["+", "-", "*", "/", "%"].includes(op)) {
+                const x = parseFloat(a), y = parseFloat(b);
+                if (isNaN(x) || isNaN(y)) return mostrar("Valores inválidos");
+                if ((op === "/" || op === "%") && y === 0) return mostrar("División por cero");
+                result = { "+": x + y, "-": x - y, "*": x * y, "/": x / y, "%": x % y }[op];
+            }
+        
+            else if (["&&", "||"].includes(op)) {
+                const x = a === "1", y = b === "1";
+                result = { "&&": x && y, "||": x || y }[op];
+            }
+        
+            else if (["&", "|"].includes(op)) {
+                const x = parseInt(a), y = parseInt(b);
+                if (isNaN(x) || isNaN(y)) return mostrar("Valores inválidos");
+                result = { "&": x & y, "|": x | y }[op].toString(2);
+            }
+        
+            mostrar(result);
+        }
+        
+        function mostrar(result) {
+            document.getElementById("result").textContent = result;
+            console.log('Resultado:' + result);
+        }
+        
+        
+    </code></pre>
 </body>
+
 </html>
