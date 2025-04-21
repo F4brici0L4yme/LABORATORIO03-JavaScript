@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./script4.js"></script>
+    <title>Tarea 4</title>
+</head>
+<body>
+    <p>Sesión meet de hoy: <span id="meetUrl">https://meet.google.com/hnq-obrq-ejt</span></p>
+    <p>Código de la sesión de meet: <span id="meetCode"></span></p>
+    <button onclick='getMeetCode()'>Conseguir código</button>
+    <br><br><br>
+    <p>Revisar la consola para verificar...</p>
+    <p>Código utilizado:</p>
+    <pre><code>
+        function getMeetCode() {
+            const meetUrl = document.getElementById("meetUrl").textContent;
+        
+            let lastSlash = -1;
+            for (let i = 0; i < meetUrl.length; i++) {
+                if (meetUrl[i] === '/') {
+                    lastSlash = i;
+                }
+            }
+        
+            let meetCode = '';
+            for (let j = lastSlash + 1; j < meetUrl.length; j++) {
+                meetCode += meetUrl[j];
+            }
+            
+            document.getElementById("meetCode").innerText = meetCode;
+            console.log('El código de la reunión es: ' + meetCode);
+        }
+        
+    </code></pre>
+</body>
+</html>
