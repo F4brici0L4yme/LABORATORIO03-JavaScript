@@ -1,33 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./scriptPagina1.js"></script>
+    <script src="./scriptPagina1.js" defer></script>
     <title>Pagina 1</title>
 </head>
-    <p id="text">- Nunca subo a una balanza porque sé que me va a pesar.<br>- ¿Cómo harán para vivir los muertos de hambre?<br>- Las canas ya no se respetan. Se tiñen.</p>
-    <input type="number" id="size" placeholder="Tamaño" style="width: 65px;">
-    <button onclick="changeTextFontSize()">Cambiar tamaño de letra</button>
+
+<body>
+    <p id="text">- Nunca subo a una balanza porque sé que me va a pesar.<br>- ¿Cómo harán para vivir los muertos de
+        hambre?<br>- Las canas ya no se respetan. Se tiñen.</p>
+
+    <button onclick="increaseFontSize()">+</button>
+    <button onclick="decreaseFontSize()">-</button>
+
     <input type="color" id="colorInput">
     <button onclick="changeColor()">Cambiar color de letra</button>
+
     <br><br><br>
     <p>Revisar la consola para verificar...</p>
     <p>Código utilizado:</p>
     <pre><code>
-        function changeTextFontSize() {
+        let currentFontSize = 16;
+
+        function updateFontSize() {
             const text = document.getElementById("text");
-            const size = document.getElementById("size").value;
-            const sizePx = text.style.fontSize = size + "px";
-            text.style.fontSize = sizePx;
-            console.log("Tamaño de fuente cambiado a:", sizePx);
+            text.style.fontSize = currentFontSize + "px";
+            console.log("Tamaño de fuente cambiado a:", currentFontSize + "px");
         }
+
+        function increaseFontSize() {
+            currentFontSize += 2;
+            updateFontSize();
+        }
+
+        function decreaseFontSize() {
+            if (currentFontSize > 2) {
+                currentFontSize -= 2;
+                updateFontSize();
+            }
+        }
+
         function changeColor() {
             const text = document.getElementById("text");
             const colorInput = document.getElementById("colorInput");
             text.style.color = colorInput.value;
             console.log("Color cambiado a:", colorInput.value);
         }
+
     </code></pre>
 </body>
+
 </html>
