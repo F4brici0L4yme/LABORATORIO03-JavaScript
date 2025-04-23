@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gráfico Comparativo</title>
+    <title>Gráfico Comparativo excepto Lima & Callao</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
     <style>
@@ -23,13 +23,42 @@
         #comparar {
             margin-bottom: 20px;
         }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f0f0f0;
+            font-size: 14px;
+        }
+
+        /* Reducir tamaño del texto solo para las celdas de datos */
+        td {
+            font-size: 12px;
+        }
     </style>
 </head>
 
 <body>
-    <h3>Selecciona regiones para comparar:</h3>
-    <canvas id="grafico" width="800" height="400"></canvas>
-
+    <h3>Visualize el crecimiento de las regiones, excepto Lima & Callao</h3>
+    <canvas id="grafico" width="1550" height="750"></canvas>
+    <table id="tablaData">
+        <thead>
+            <!-- Por llenar con js   -->
+        </thead>
+        <tbody>
+            <!-- Por llenar con js   -->
+        </tbody>
+    </table>
 </body>
 
 </html>
