@@ -60,7 +60,6 @@ window.onload = function () {
 function actualizarDesdeCheckboxes() {
     const seleccionadas = Array.from(document.querySelectorAll('#checkbox-container input[type="checkbox"]:checked'))
         .map(cb => cb.value);
-
     const regionesSeleccionadas = regionesData.filter(r => seleccionadas.includes(r.region));
     actualizarGrafico(regionesSeleccionadas);
 }
