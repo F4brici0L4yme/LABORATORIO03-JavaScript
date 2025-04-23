@@ -1,26 +1,24 @@
 window.onload = function() {
-    const select1 = document.querySelector('#region1');
-    const select2 = document.querySelector('#region2');
+    const container = document.querySelector('#checkbox-container');
     fetch('./data.json')
         .then(response => {
             if(!response.ok){
-                throw new Error('API error :(');
+                throw new Error('error en la API local :(');
             }
             return response.json();
         })
         .then(data => {
-            data.sort((a, b) => a.name.common.localeCompare(b.name.common));
+            data.forEach(region =>{
+                const label = document.createElement('label');
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.name = 'region';
+                checkbox.value = region.region;
 
-            data.forEach(country =>{
-                const option1 = document.createElement('option');
-                option1.value = country.name.common;
-                option1.textContent = country.name.common;
-                select1.appendChild(option1);
+                label.appendChild(checkbox);
+                label.appendChild(document.createTextNode(region.region));
+                container.appendChild(label);
             
-                const option2 = document.createElement('option');
-                option2.value = country.name.common;
-                option2.textContent = country.name.common;
-                select2.appendChild(option2);
             });
         })
         .catch(error => {
