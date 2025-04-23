@@ -1,33 +1,46 @@
 function crearTabla() {
-    const cantidad = document.getElementById('cantidad').value;
+    const filas = parseInt(document.getElementById('filas').value);
+    const columnas = parseInt(document.getElementById('columnas').value);
     const container = document.getElementById('tablaContainer');
     container.innerHTML = '';
-    const tabla = document.createElement('table');
-    tabla.setAttribute('border', '1');
-    const fila = document.createElement('tr');
 
-    for (let i = 0; i < cantidad; i++) {
-        const celda = document.createElement('td');
-        const valor = Math.floor(Math.random() * 100);
-        celda.textContent = valor;
-        fila.appendChild(celda);
+    if (isNaN(filas) || isNaN(columnas) || filas < 1 || columnas < 1) {
+        alert("Ingrese valores válidos para filas y columnas.");
+        return;
     }
 
-    tabla.appendChild(fila);
+    const tabla = document.createElement('table');
+    tabla.setAttribute('border', '1');
+
+    for (let i = 0; i < filas; i++) {
+        const fila = document.createElement('tr');
+        for (let j = 0; j < columnas; j++) {
+            const celda = document.createElement('td');
+            const valor = Math.floor(Math.random() * 100);
+            celda.textContent = valor;
+            fila.appendChild(celda);
+        }
+        tabla.appendChild(fila);
+    }
+
     container.appendChild(tabla);
-    console.log('Tabla creada con', cantidad, 'celdas');
+
     const botonSuma = document.createElement('button');
     botonSuma.textContent = 'Calcular Suma';
     botonSuma.onclick = calcularSuma;
+    container.appendChild(document.createElement('br'));
+    container.appendChild(document.createElement('br'));
     container.appendChild(botonSuma);
+
+    console.log(`Tabla de ${filas}x${columnas} creada.`);
 }
 
 function calcularSuma() {
     const celdas = document.querySelectorAll('td');
     let suma = 0;
-    for (let i = 0; i < celdas.length; i++) {
-        suma += parseInt(celdas[i].textContent);
-    }
+    celdas.forEach(celda => {
+        suma += parseInt(celda.textContent);
+    });
     document.getElementById('resultadoSuma').textContent = suma;
     console.log('Suma:', suma);
 }
