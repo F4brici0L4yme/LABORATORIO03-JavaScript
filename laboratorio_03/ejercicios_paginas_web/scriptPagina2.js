@@ -4,7 +4,6 @@ function calcular() {
     const b = document.getElementById("argument2").value;
     let result = "—";
 
-    // Aritmética
     if (["+", "-", "*", "/", "%"].includes(op)) {
         const x = parseFloat(a), y = parseFloat(b);
         if (isNaN(x) || isNaN(y)) return mostrar("Valores inválidos");
@@ -12,7 +11,6 @@ function calcular() {
         result = { "+": x + y, "-": x - y, "*": x * y, "/": x / y, "%": x % y }[op];
     }
 
-    // Lógica
     else if (["&&", "||"].includes(op)) {
         const x = a === "1", y = b === "1";
         result = { "&&": x && y, "||": x || y }[op];
@@ -22,21 +20,19 @@ function calcular() {
         result = !x;
     }
 
-    // Bitwise binarios
     else if (["&", "|", "^", "<<", ">>", ">>>"].includes(op)) {
         const x = parseInt(a), y = parseInt(b);
         if (isNaN(x) || isNaN(y)) return mostrar("Valores inválidos");
-        result = { 
-            "&": x & y, 
-            "|": x | y, 
-            "^": x ^ y, 
-            "<<": x << y, 
-            ">>": x >> y, 
-            ">>>": x >>> y 
-        }[op].toString(2); // resultado en binario
+        result = {
+            "&": x & y,
+            "|": x | y,
+            "^": x ^ y,
+            "<<": x << y,
+            ">>": x >> y,
+            ">>>": x >>> y
+        }[op].toString(2);
     }
 
-    // Bitwise unario
     else if (op === "~") {
         const x = parseInt(a);
         if (isNaN(x)) return mostrar("Valor inválido");
