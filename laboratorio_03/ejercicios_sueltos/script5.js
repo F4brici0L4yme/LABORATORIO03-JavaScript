@@ -1,7 +1,7 @@
 function crearTabla() {
-    const filas = parseInt(document.getElementById('filas').value);
-    const columnas = parseInt(document.getElementById('columnas').value);
-    const container = document.getElementById('tablaContainer');
+    const filas = parseInt(document.querySelector('#filas').value);
+    const columnas = parseInt(document.querySelector('#columnas').value);
+    const container = document.querySelector('#tablaContainer');
     container.innerHTML = '';
 
     if (isNaN(filas) || isNaN(columnas) || filas < 1 || columnas < 1) {

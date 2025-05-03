@@ -18,6 +18,7 @@ function decreaseFontSize() {
     }
 }
 
+
 function changeColor() {
     const text = document.getElementById("text");
     const colorInput = document.getElementById("colorInput");
