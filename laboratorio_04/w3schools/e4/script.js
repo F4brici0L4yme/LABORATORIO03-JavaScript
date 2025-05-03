@@ -5,5 +5,6 @@ xhttp.onreadystatechange = function () {
             this.getResponseHeader("Last-Modified");
     }
 };
+console.log('Rodrigo Fabricio Layme Salas');
 xhttp.open("GET", "ajax_info.txt", true);
 xhttp.send();
