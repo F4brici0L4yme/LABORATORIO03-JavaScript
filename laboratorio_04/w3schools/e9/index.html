@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./script.js"></script>
+    <title>Data from DB</title>
+</head>
+
+<body>
+
+    <h1>The XMLHttpRequest Object</h1>
+
+    <form action="">
+        <select name="customers" onchange="showCustomer(this.value)">
+            <option value="">Select a customer:</option>
+            <option value="ALFKI">Alfreds Futterkiste</option>
+            <option value="NORTS ">North/South</option>
+            <option value="WOLZA">Wolski Zajazd</option>
+        </select>
+    </form>
+    <br>
+    <div id="txtHint">Customer info will be listed here...</div>
+
+</body>
+
+</html>
