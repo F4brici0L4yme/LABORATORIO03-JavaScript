@@ -1,44 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
-    <meta charset="utf-8">
-    <title>Gráfico de Confirmados por Región</title>
+    <meta charset="UTF-8">
+    <title>Dashboard COVID por Región</title>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script defer src="script.js"></script>
     <style>
-        .list-container {
-            display: flex;
-            flex-direction: row;
-            gap: 10px;
-            flex-wrap: wrap;
+        #all-regions span {
+            display: inline-block;
+            margin: 0 8px 8px 0;
+            padding: 6px 12px;
+            background: rgb(208, 208, 255);
+            border-radius: 4px;
         }
-        .list-item {
-            padding: 10px;
-            background-color: #dfebffae;
+
+        #checkbox-container label {
+            margin-right: 12px;
         }
     </style>
 </head>
 
 <body>
-    <h1>Gráficos de Confirmados por Región</h1>
-    <h3>Regiones analizadas:</h3>
-    <div id="list-container" class="list-container"></div>
+    <h1>Dashboard de Confirmados por Región</h1>
 
-    <h2>Región Arequipa</h2>
-    <div id="linechart_arequipa_div" style="width: 900px; height: 500px;"></div>
+    <h2>1 & 2 Listado y total de confirmados</h2>
+    <div id="all-regions"></div>
 
-    <h2>Gráfico Comparativo entre Amazonas y Ancash</h2>
-    <div id="linechart_comparativo_div" style="width: 900px; height: 500px;"></div>
+    <h2>3 Top 10 regiones con más casos</h2>
+    <ul id="top10-list"></ul>
+    
+    <h2>4 Gráfica de Arequipa</h2>
+    <div id="linechart_arequipa_div" style="width: 900px; height: 400px;"></div>
 
-    <h2>Gráfico Comparativo entre Regiones (Excluyendo Lima y Callao)</h2>
-    <div id="linechart_comparativo_excluidos_div" style="width: 900px; height: 500px;"></div>
-
-    <h2>Gráfico Comparativo por Elección del Usuario</h2>
-    <div id="linechart_usuario_div" style="width: 900px; height: 500px;"></div>
-
-    <h2>Gráfico de Crecimiento Diario (Excluyendo Lima y Callao)</h2>
-    <div id="linechart_growth_excluidos_div" style="width: 900px; height: 500px;"></div>
 </body>
 
 </html>
