@@ -3,17 +3,42 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Google Chart con JS separado</title>
+    <title>Gráfico de Confirmados por Región</title>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script defer src="script.js"></script>
+    <style>
+        .list-container {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .list-item {
+            padding: 10px;
+            background-color: #dfebffae;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Gráfico regiones</h1>
-    <ul id="region-list">
+    <h1>Gráficos de Confirmados por Región</h1>
+    <h3>Regiones analizadas:</h3>
+    <div id="list-container" class="list-container"></div>
 
-    </ul>
-    <div id="chart_div" style="width: 600px; height: 400px;"></div>
+    <h2>Región Arequipa</h2>
+    <div id="linechart_arequipa_div" style="width: 900px; height: 500px;"></div>
+
+    <h2>Gráfico Comparativo entre Amazonas y Ancash</h2>
+    <div id="linechart_comparativo_div" style="width: 900px; height: 500px;"></div>
+
+    <h2>Gráfico Comparativo entre Regiones (Excluyendo Lima y Callao)</h2>
+    <div id="linechart_comparativo_excluidos_div" style="width: 900px; height: 500px;"></div>
+
+    <h2>Gráfico Comparativo por Elección del Usuario</h2>
+    <div id="linechart_usuario_div" style="width: 900px; height: 500px;"></div>
+
+    <h2>Gráfico de Crecimiento Diario (Excluyendo Lima y Callao)</h2>
+    <div id="linechart_growth_excluidos_div" style="width: 900px; height: 500px;"></div>
 </body>
 
 </html>
